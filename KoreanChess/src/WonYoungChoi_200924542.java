@@ -210,6 +210,43 @@ public class WonYoungChoi_200924542 {
 	}
 
 	/*
+	 * Input : putUnit BJANG (4,1) -> (3,0) 
+	 * Expected: return SUCCESS 
+	 * 												(4,1) = NONE
+	 * 												(3,0) = BJANG
+	 */
+	@Test
+	public void testValidFirstPutBJANG_08() {
+		int[] beforeXY = {4,1};
+		int[] afterXY = {3,0};
+		testJangGi.putUnit(3,0, Unit.BSA, 3,1);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+		assertEquals(PutResult.SUCCESS, result);
+		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	}
+
+	/*
+	 * Input : putUnit BJANG (4,1) -> (5,0) 
+	 * Expected: return SUCCESS 
+	 * 												(4,1) = NONE
+	 * 												(5,0) = BJANG
+	 */
+	@Test
+	public void testValidFirstPutBJANG_09() {
+		int[] beforeXY = {4,1};
+		int[] afterXY = {5,0};
+		testJangGi.putUnit(5,0, Unit.BSA, 5,1);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+		assertEquals(PutResult.SUCCESS, result);
+		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	}
+	
+	
+	
+	
+	/*
 	 * Input : putUnit BPHO (1,2) -> (4,2) 
 	 * Expected: return SUCCESS 
 	 * 												(1,2) = NONE
@@ -330,6 +367,8 @@ public class WonYoungChoi_200924542 {
 		assertEquals(PutResult.SUCCESS, result);
 		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
 	}
+	
+	
 	
 	
 	
