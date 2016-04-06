@@ -305,7 +305,31 @@ public class WonYoungChoi_200924542 {
 	}
 	
 	
-	
+
+	/*
+	 * Input : putUnit BPHO (4,2) -> (0,2)
+	 * Expected: return SUCCESS 
+	 * 												(4,2) = NONE
+	 * 												(0,2) = BPHO
+	 */
+	@Test
+	public void testValidFirstPutBPHO_06() {
+		int[] beforeXY = {4,2};
+		int[] afterXY = {0,2};
+		testJangGi.putUnit(2,0, Unit.BMA, 3,2);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		testJangGi.putUnit(0,0, Unit.BCHA, 0,2);
+		testJangGi.putUnit(1,6, Unit.RJOL, 0,6);
+		testJangGi.putUnit(1,2, Unit.BPHO, 4,2);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		testJangGi.putUnit(0,2, Unit.BCHA, 1,2);
+		testJangGi.putUnit(1,6, Unit.RJOL, 0,6);
+		testJangGi.putUnit(3,2, Unit.BMA, 2,0);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+		assertEquals(PutResult.SUCCESS, result);
+		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	}
 	
 	
 	
