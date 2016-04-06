@@ -83,8 +83,6 @@ public class WonYoungChoi_200924542 {
 		assertEquals(PutResult.SUCCESS, result);
 		assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
 	}
-	
-	
 
 	/*
 	 * Input : putUnit BSA (3,0) -> (4,0) 
@@ -389,7 +387,27 @@ public class WonYoungChoi_200924542 {
 	}
 	
 	
-	
+
+	/*
+	 * Input : putUnit BPHO (5,2) -> (3,0)
+	 * Expected: return SUCCESS 
+	 * 												(5,2) = NONE
+	 * 												(3,0) = BPHO
+	 */
+	@Test
+	public void testValidFirstPutBPHO_07() {
+		int[] beforeXY = {5,2};
+		int[] afterXY = {3,0};
+		testJangGi.putUnit(4,1, Unit.BJANG, 3,2);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		testJangGi.putUnit(1,2, Unit.BPHO, 5,2);
+		testJangGi.putUnit(1,6, Unit.RJOL, 0,6);
+		testJangGi.putUnit(3,0, Unit.BSA, 4,1);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+		assertEquals(PutResult.SUCCESS, result);
+		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	}
 	
 	
 	
