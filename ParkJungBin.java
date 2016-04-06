@@ -121,8 +121,124 @@ public class ParkJungBin_201124446 {
 	
 	//장
 	
+	@Test //장 궁성 밖으로
+	public void testFailureMoveJangOutOfCastle(){
+		int[] beforeXY={5,1};
+		int[] afterXY={6,1};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
 	
+	@Test //장 두칸 움직이기
+	public void testFailureMoveJangToTwoSpace(){
+		int[] beforeXY={5,1};
+		int[] afterXY={3,1};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
 	
+	@Test //장 선 없는 대각선 움직이기********
+	public void testFailureMoveJangToDiagonalNoLine(){
+		int[] beforeXY={5,1};
+		int[] afterXY={4,2};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+	
+	@Test //장 이상한 경로
+	public void testFailureMoveJangToIllegalPath(){
+		int[] beforeXY={5,1};
+		int[] afterXY={3,2};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+	
+	@Test //장 우리기물위치로 이동
+	public void testFailureMoveJangToAllies(){
+		int[] beforeXY={4,1};
+		int[] afterXY={3,0};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+	
+	//사
+
+	@Test //사 궁성 밖으로
+	public void testFailureMoveSaOutOfCastle(){
+		int[] beforeXY={5,1};
+		int[] afterXY={6,1};
+		Unit target = Unit.BSA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(5, 0, Unit.BSA, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+
+	@Test //사 두칸 움직이기
+	public void testFailureMoveSaToTwoSpace(){
+		int[] beforeXY={5,1};
+		int[] afterXY={3,1};
+		Unit target = Unit.BSA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(5, 0, Unit.BSA, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+
+	@Test //사 선 없는 대각선 움직이기********
+	public void testFailureMoveSaToDiagonalNoLine(){
+		int[] beforeXY={5,1};
+		int[] afterXY={4,2};
+		Unit target = Unit.BSA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(5, 0, Unit.BSA, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+
+	@Test //사 이상한 경로
+	public void testFailureMoveSaToIllegalPath(){
+		int[] beforeXY={5,1};
+		int[] afterXY={3,2};
+		Unit target = Unit.BSA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(5, 0, Unit.BSA, 5, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+
+	@Test //사 우리기물위치로 이동
+	public void testFailureMoveSaToAllies(){
+		int[] beforeXY={5,0};
+		int[] afterXY={4,1};
+		Unit target = Unit.BSA;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	} 
+
 	/*
 	@Test //장군 당했는데 다른거 움직이기
 	public void testFailureMoveOtherOnJangGun(){
