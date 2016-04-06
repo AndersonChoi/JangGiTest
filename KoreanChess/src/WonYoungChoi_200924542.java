@@ -271,7 +271,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(4,2) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_01() {
+	public void testValidOverBMA_BPHO() {
 		int[] beforeXY = {1,2};
 		int[] afterXY = {4,2};
 		testJangGi.putUnit(2,0, Unit.BMA, 3,2);
@@ -290,7 +290,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(1,4) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_02() {
+	public void testValidOverBJOL_BPHO() {
 		int[] beforeXY = {1,2};
 		int[] afterXY = {1,4};
 		testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
@@ -307,7 +307,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(4,2) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_03() {
+	public void testValidOverBJANG_BPHO() {
 		int[] beforeXY = {1,2};
 		int[] afterXY = {4,2};
 		testJangGi.putUnit(4,1, Unit.BJANG, 3,2);
@@ -324,7 +324,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(4,2) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_04() {
+	public void testValidOverBSA_BPHO() {
 		int[] beforeXY = {1,2};
 		int[] afterXY = {4,2};
 		testJangGi.putUnit(3,0, Unit.BSA, 3,1);
@@ -343,7 +343,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(4,4) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_05() {
+	public void testValidOverBSANG_BPHO() {
 		int[] beforeXY = {4,2};
 		int[] afterXY = {4,4};
 		testJangGi.putUnit(2,0, Unit.BMA, 3,2);
@@ -368,7 +368,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(0,2) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_06() {
+	public void testValidOverBCHA_BPHO() {
 		int[] beforeXY = {4,2};
 		int[] afterXY = {0,2};
 		testJangGi.putUnit(2,0, Unit.BMA, 3,2);
@@ -395,7 +395,7 @@ public class WonYoungChoi_200924542 {
 	 * 												(3,0) = BPHO
 	 */
 	@Test
-	public void testValidFirstPutBPHO_07() {
+	public void testValidCrossOverBSA_BPHO() {
 		int[] beforeXY = {5,2};
 		int[] afterXY = {3,0};
 		testJangGi.putUnit(4,1, Unit.BJANG, 3,2);
