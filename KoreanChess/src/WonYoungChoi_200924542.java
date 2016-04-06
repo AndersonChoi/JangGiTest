@@ -409,6 +409,33 @@ public class WonYoungChoi_200924542 {
 		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
 	}
 	
+
+
+	/*
+	 * Input : putUnit BPHO (1,2) -> (1,7)
+	 * Expected: return SUCCESS 
+	 * 												(1,2) = NONE
+	 * 												(1,7) = BPHO
+	 */
+	@Test
+	public void testValidOverR_BPHO_01() {
+		int[] beforeXY = {1,2};
+		int[] afterXY = {1,7};
+		testJangGi.putUnit(0,0, Unit.BCHA, 0,1);
+		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+		testJangGi.putUnit(0,1, Unit.BCHA, 0,0);
+		testJangGi.putUnit(1,9, Unit.RMA, 2,7);
+		testJangGi.putUnit(0,0, Unit.BCHA, 0,1);
+		testJangGi.putUnit(1,7, Unit.RPHO, 3,7);
+		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+		assertEquals(PutResult.SUCCESS, result);
+		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	}
+	
+	
+	
+	
+	
 	
 	
 	
