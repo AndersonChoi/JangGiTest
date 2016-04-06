@@ -548,4 +548,64 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
 	
+	@Test//차 궁성 선없는 대각선
+	public void testFailureMoveChaToDiagonalNoLine(){
+		int[] beforeXY={5,1};
+		int[] afterXY={4,2};
+		Unit target = Unit.BCHA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(8, 0, Unit.BCHA, 8, 1);
+		JangGi.putUnit(0, 6, Unit.RJOL, 0, 5);
+		JangGi.putUnit(8, 1, Unit.BCHA, 5, 1);
+		JangGi.putUnit(0, 5, Unit.RJOL, 0, 4);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
 }
+
+/*
+실패하는 경우
+
+없는 말 움직이기.
+한 턴에 두번 움직이기.
+밖으로 나가기
+
+쫄
+뒤로가기/궁성 대각선 뒤로(한 칸)
+대각선 및 갈 수 없는곳으로가기(두 칸 이상)
+기물이 있는 곳으로 가기
+
+상
+경로에 기물이 있을 때
+도착점에 기물이 있을 때
+갈 수 없는 경로
+궁성 안에서 대각선 직선 직선
+
+마
+경로에 기물이 있을 때
+도착점에 기물이 있을 때
+갈 수 없는 경로
+궁성 안에서 대각선 직선
+
+포
+포를 넘기
+포를 먹기
+두개 이상 넘기
+안 넘기
+
+차
+넘어가기
+대각선 등 이상한데 가기
+
+사
+궁성 밖으로 나가기
+두 칸 이상가기
+아군 기물이 있는 곳으로 가기
+
+장
+궁성 밖으로 나가기
+두 칸 이상가기
+아군 기물이 있는 곳으로 가기
+(상대방이 장군인 위치로 움직이기)
+상대방이 장군일 때 다른 말 움직이기.
+*/
