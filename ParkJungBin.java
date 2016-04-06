@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-//hehe
+
 import org.junit.Test;
 
 import KoreanChessGame.KoreanChess;
@@ -120,6 +120,9 @@ public class ParkJungBin_201124446 {
 	}*/
 	
 	//장
+	
+	
+	
 	/*
 	@Test //장군 당했는데 다른거 움직이기
 	public void testFailureMoveOtherOnJangGun(){
@@ -300,6 +303,130 @@ public class ParkJungBin_201124446 {
 		int[] beforeXY={2,0};
 		int[] afterXY={1,1};
 		Unit target = Unit.BMA;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//마 궁성에서 대각선 직선
+	public void testFailureMoveMaToDiagonalFirstInCastle(){
+		int[] beforeXY={4,1};
+		int[] afterXY={6,2};
+		Unit target = Unit.BMA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 5, 1);
+		JangGi.putUnit(8, 6, Unit.RJOL, 7, 6);
+		JangGi.putUnit(2, 0, Unit.BMA, 3, 2);
+		JangGi.putUnit(7, 6, Unit.RJOL, 8, 6);
+		JangGi.putUnit(3, 2, Unit.BMA, 5, 3);
+		JangGi.putUnit(8, 6, Unit.RJOL, 7, 6);
+		JangGi.putUnit(5, 3, Unit.BMA, 4, 1);
+		JangGi.putUnit(7, 6, Unit.RJOL, 8, 6);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	///포~~!
+	
+	@Test//포 넘기
+	public void testFailureMovePhoOverTheOtherPho(){
+		int[] beforeXY={1,2};
+		int[] afterXY={8,2};
+		int[] afterXY2={1,9};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY2[0], afterXY2[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//포 먹기
+	public void testFailureMovePhoToCaptureTheOtherPho(){
+		int[] beforeXY={1,2};
+		int[] afterXY={1,7};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(0, 3, Unit.BJOL, 1, 3);
+		JangGi.putUnit(0, 6, Unit.RJOL, 0, 5);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//포 암것도 안넘고 움직이기
+	public void testFailureMovePhoToDirect(){
+		int[] beforeXY={1,2};
+		int[] afterXY={1,4};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//포 두개 넘기
+	public void testFailureMovePhoOverTwoPiece(){
+		int[] beforeXY={7,2};
+		int[] afterXY={2,2};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(2, 0, Unit.BMA, 3, 2);
+		JangGi.putUnit(0, 6, Unit.RJOL, 0, 5);
+		JangGi.putUnit(7, 0, Unit.BMA, 6, 2);
+		JangGi.putUnit(0, 5, Unit.RJOL, 0, 4);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//포 아군 먹기
+	public void testFailureMovePhoToAllies(){
+		int[] beforeXY={7,2};
+		int[] afterXY={3,2};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(2, 0, Unit.BMA, 3, 2);
+		JangGi.putUnit(0, 6, Unit.RJOL, 0, 5);
+		JangGi.putUnit(7, 0, Unit.BMA, 6, 2);
+		JangGi.putUnit(0, 5, Unit.RJOL, 0, 4);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//포 대각선 넘기
+	public void testFailureMovePhoToDiagonal(){
+		int[] beforeXY={7,2};
+		int[] afterXY={5,4};
+		Unit target = Unit.BPHO;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	//////차
+	
+	@Test//차 기물 넘어가기
+	public void testFailureMoveChaToOverAPiece(){
+		int[] beforeXY={0,0};
+		int[] afterXY={0,6};
+		Unit target = Unit.BCHA;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//차 기물 넘어가기
+	public void testFailureMoveChaToIllegalSpace(){
+		int[] beforeXY={0,0};
+		int[] afterXY={2,2};
+		Unit target = Unit.BCHA;
+		KoreanChess JangGi = new KoreanChess();
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	@Test//차 기물 넘어가기
+	public void testFailureMoveChaToAllies(){
+		int[] beforeXY={0,0};
+		int[] afterXY={1,0};
+		Unit target = Unit.BCHA;
 		KoreanChess JangGi = new KoreanChess();
 		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
