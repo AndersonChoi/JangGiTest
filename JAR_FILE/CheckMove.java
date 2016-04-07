@@ -146,6 +146,8 @@ public class CheckMove
     int b = preposition[1] - nowposition[1];
     if ((nowposition[0] >= 3) && (nowposition[0] <= 5) && (nowposition[1] >= 0) && (nowposition[1] <= 2))
     {
+      //이제 바뀔려는 포지션이 (3,0)이상이고 (5,2)이하라면..?
+      
       if ((board[4][1] != 0) && 
         (a * a + b * b == 8)) {
         return true;
@@ -236,6 +238,9 @@ public class CheckMove
       }
       return 1;
     }
+    
+    
+    // 아래는 밑에쪽 칸에 대한 경우...
     if ((preposition[0] >= 3) && (preposition[0] <= 5) && (preposition[1] >= 7) && (preposition[1] <= 9) && 
       (nowposition[0] >= 3) && (nowposition[0] <= 5) && (nowposition[1] >= 7) && (nowposition[1] <= 9))
     {
@@ -282,7 +287,7 @@ public class CheckMove
         }
       }
       else if ((preposition[0] == 5) && (preposition[1] == 9))
-      {
+      { //만약 이전포지션이 (5,9)라면,..?
         int i = preposition[0] - 1;
         for (int j = preposition[1] - 1; i >= 3; j--)
         {
