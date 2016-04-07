@@ -165,8 +165,11 @@ public class CheckMove
     if ((preposition[0] >= 3) && (preposition[0] <= 5) && (preposition[1] >= 0) && (preposition[1] <= 2) && 
       (nowposition[0] >= 3) && (nowposition[0] <= 5) && (nowposition[1] >= 0) && (nowposition[1] <= 2))
     {
+      //preposition의 x축이 3이상 5이하 , y축이 0이상 2이하
+      //nowposition이 x축이 3이상 5이하, y축이 0이상 2이하
+      
       if ((preposition[0] == 3) && (preposition[1] == 0))
-      {
+      {//만약 이전 포지션이 (3,0)이면..
         int i = preposition[0] + 1;
         for (int j = preposition[1] + 1; i <= 5; j++)
         {
