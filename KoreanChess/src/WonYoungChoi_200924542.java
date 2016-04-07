@@ -299,6 +299,7 @@ public class WonYoungChoi_200924542 {
 		assertEquals(PutResult.SUCCESS, result);
 		assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
 	}
+	
 
 	/*
 	 * Input : putUnit BPHO (1,2) -> (4,2) 
