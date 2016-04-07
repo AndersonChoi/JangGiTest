@@ -2,6 +2,10 @@ package KoreanChessGame;
 
 public class CheckMove
 {
+  
+  //유닛이 움직이는것 체크하고있다.
+  //보드와 포지션, 지금 포지션, 그리고 나중 포지션하는데
+  //position int는 뭘뜻하는 걸까?
   public boolean cheackUnitMove(int[][] board, int position, int[] currentPosition, int[] nextPosition)
   {
     if ((position == 1) || (position == 6))
