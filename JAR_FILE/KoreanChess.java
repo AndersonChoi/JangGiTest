@@ -32,7 +32,7 @@ public class KoreanChess
   {
     this.janggiBoard = init();
   }
-  
+  //유닛움직이기 큰 함수
   public PutResult putUnit(int preX, int preY, Unit unit, int postX, int postY)
   {
     PutResult returnValue = PutResult.FAILURE;
@@ -42,9 +42,15 @@ public class KoreanChess
     
     this.nextUnitPosition[0] = postX;
     this.nextUnitPosition[1] = postY;
-    if (unit.getNumber() == this.janggiBoard[preX][preY]) {
-      if (this.isStart) {
+    
+    //이전 포지션, 나중포지션
+    
+    
+    
+    if (unit.getNumber() == this.janggiBoard[preX][preY]) {//preXY 즉, 움직이는 곳에 유닛이 있어야 if발동
+      if (this.isStart) {//시작햇는지 즉 초기화되었는지확인하는것.
         if (this.janggiBoard[this.currentUnitPosition[0]][this.currentUnitPosition[1]] / 8 == myTurn) {
+          //my turn이 누구 턴인지 확인하는것..
           if ((this.nextUnitPosition[0] != this.currentUnitPosition[0]) || (this.currentUnitPosition[1] != this.nextUnitPosition[1])) {
             if (this.checkmove.cheackUnitMove(this.janggiBoard, this.janggiBoard[this.currentUnitPosition[0]][this.currentUnitPosition[1]], this.currentUnitPosition, this.nextUnitPosition)) {
               if (this.janggiBoard[this.nextUnitPosition[0]][this.nextUnitPosition[1]] == 0)
@@ -248,6 +254,9 @@ public class KoreanChess
         break;
       }
     }
+    //넥스트 유닛 포지션이 
+    
+    
     this.janggun = false;
     for (int i = 0; i < 9; i++)
     {
