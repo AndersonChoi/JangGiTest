@@ -9,19 +9,19 @@ import KoreanChessGame.Unit;
 
 /*
  * 1 - testValidMoveBCHA    ok
- * 2 - testValidMoveBSANG
+ * 2 - testValidMoveBSANG                    no
  * 3 - testValidMoveBMA    ok
  * 4 - testValidMoveBSA    ok
  * 5 - testValidMoveBJANG   ok
- * 6 - testValidMoveBPHO  B is ok but.. R is on
+ * 6 - testValidMoveBPHO  					B is ok but.. R is on
  * 7 - testValidMoveBJOL    ok
  * 
  * 8 - testValidMoveRJOL     ok
- * 9 - testValidMoveRPHO    
+ * 9 - testValidMoveRPHO                        no
  * 10 - testValidMoveRCHA     ok 
  * 11 - testValidMoveRMA        ok
- * 12 - testValidMoveRSANG
- * 13 - testValidMoveRSA 
+ * 12 - testValidMoveRSANG                    no
+ * 13 - testValidMoveRSA                     no
  * 14 - testValidMoveRJANG    ok
  * 
  */
