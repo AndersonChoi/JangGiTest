@@ -434,7 +434,7 @@ public class WonYoungChoi_200924542 {
 	 * Expected: return SUCCESS 
 	 * 												(5,2) = NONE
 	 * 												(3,0) = BPHO
-	 * 8 - testValidOverRJOL_BPHO
+	 * 8 - testValidOverRJOL_BPHOs
 	 * Input : putUnit BPHO (1,2) -> (1,7)
 	 * Expected: return SUCCESS 
 	 * 												(1,2) = NONE
