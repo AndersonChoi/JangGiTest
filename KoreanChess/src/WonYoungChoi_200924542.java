@@ -130,6 +130,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 	}
 
@@ -170,6 +171,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidMoveBMA_toSouthSouthWest
 		{
@@ -181,6 +183,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidMoveBMA_toNorthNorthEast
 		{
@@ -192,6 +195,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 4 - testValidMoveBMA_toNorthNorthWest
 		{
@@ -203,6 +207,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 5 - testValidMoveBMA_toEastEastSouth
 		{
@@ -214,6 +219,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 6 - testValidMoveBMA_toEastEastNorth
 		{
@@ -225,6 +231,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 7 - testValidMoveBMA_toWestWestSouth
 		{
@@ -236,6 +243,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 8 - testValidMoveBMA_toWestWestNorth
 		{
@@ -247,6 +255,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		
 	}
@@ -277,6 +286,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - putUnit BSA (3,0) -> (3,1) 
 		{
@@ -286,6 +296,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 	}
 	
@@ -345,6 +356,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidMoveBJANG_toWest
 		{
@@ -354,6 +366,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidMoveBJANG_toEast
 		{
@@ -363,6 +376,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 4 - testValidMoveBJANG_toDiagonalSouthEast
 		{
@@ -372,6 +386,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 5 - testValidMoveBJANG_toSouth
 		{
@@ -381,6 +396,7 @@ public class WonYoungChoi_200924542 {
 				PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 				assertEquals(PutResult.SUCCESS, result);
 				assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+				assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 6 - testValidMoveBJANG_toDiagonalSouthWest
 		{
@@ -401,6 +417,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 8 - testValidMoveBJANG_toDiagonalNorthEast
 		{
@@ -412,6 +429,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		
 	}
@@ -483,6 +501,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidOverBJOL_BPHO
 		{
@@ -494,6 +513,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidOverBJANG_BPHO
 		{
@@ -505,6 +525,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 4 - testValidOverBSA_BPHO
 		{
@@ -518,6 +539,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 5 - testValidOverBSANG_BPHO
 		{
@@ -535,6 +557,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 6 -  testValidOverBCHA_BPHO
 		{
@@ -554,6 +577,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 7 - testValidCrossOverBSA_BPHO
 		{
@@ -569,6 +593,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 8 - testValidOverRJOL_BPHO
 		{
@@ -584,6 +609,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 9 - testValidOverRCHA_BPHO
 		{
@@ -599,6 +625,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 10 - testValidOverRMA_BPHO
 		{
@@ -614,6 +641,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		
 	}
@@ -646,6 +674,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidMoveBJOL_toSouth
 		{
@@ -655,6 +684,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidMoveBJOL_toEast
 		{
@@ -664,6 +694,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 	}
 
@@ -696,6 +727,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidMoveRJOL_toNorth
 		{
@@ -706,6 +738,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidMoveRJOL_toEast
 		{
@@ -716,6 +749,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RJOL, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RJOL, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 	}
 	
@@ -818,21 +852,45 @@ public class WonYoungChoi_200924542 {
 
 	/* - testValidMoveRMA
 	 * 1 - testValidMoveRMA_toNorthNorthEast
-	 * Input : putUnit BMA (1,9) -> (2,7) 
+	 * Input : putUnit RMA (1,9) -> (2,7) 
 	 * Expected: return SUCCESS 
 	 * 												(1,9) = NONE
-	 * 												(2,7) = BMA
+	 * 												(2,7) = RMA
 	 * 2 - testValidMoveRMA_toNorthNorthWest
-	 * Input : putUnit BMA (1,9) -> (0,7) 
+	 * Input : putUnit RMA (1,9) -> (0,7) 
 	 * Expected: return SUCCESS 
 	 * 												(1,9) = NONE
-	 * 												(0,7) = BMA
+	 * 												(0,7) = RMA
 	 *  3 - testValidMoveRMA_toSouthSouthWest
+	 * Input : putUnit RMA (2,7) -> (1,9) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(1,9) = RMA
 	 *  4 - testValidMoveRMA_toSouthSouthEast
+	 * Input : putUnit RMA (2,7) -> (3,9) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(3,9) = RMA
 	 *  5 - testValidMoveRMA_toEastEastNorth
+	 * Input : putUnit RMA (2,7) -> (4,6) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(4,6) = RMA
 	 *  6 - testValidMoveRMA_toEastEastSouth
+	 * Input : putUnit RMA (2,7) -> (4,8) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(4,8) = RMA
 	 *  7 - testValidMoveRMA_toWestWestNorth
+	 * Input : putUnit RMA (2,7) -> (0,6) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(0,6) = RMA
 	 *  8 - testValidMoveRMA_toWestWestSouth
+	 * Input : putUnit RMA (2,7) -> (0,8) 
+	 * Expected: return SUCCESS 
+	 * 												(2,7) = NONE
+	 * 												(0,8) = RMA
 	 *  
 	 */
 	@Test
@@ -846,6 +904,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - testValidMoveRMA_toNorthNorthWest
 		{
@@ -856,6 +915,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 3 - testValidMoveRMA_toSouthSouthWest
 		{
@@ -868,6 +928,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 4 - testValidMoveRMA_toSouthSouthEast
 		{
@@ -882,6 +943,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 5 - testValidMoveRMA_toEastEastNorth
 		{
@@ -896,6 +958,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 6 - testValidMoveRMA_toEastEastSouth
 		{
@@ -910,6 +973,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 7 - testValidMoveRMA_toWestWestNorth
 		{
@@ -926,6 +990,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}		
 		// 8 - testValidMoveRMA_toWestWestSouth
 		{
@@ -940,6 +1005,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.RMA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}		
 		
 	}
