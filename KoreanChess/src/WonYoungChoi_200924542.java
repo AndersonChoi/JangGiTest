@@ -13,16 +13,16 @@ import KoreanChessGame.Unit;
  * 3 - testValidMoveBMA    ok
  * 4 - testValidMoveBSA
  * 5 - testValidMoveBJANG   ok
- * 6 - testValidMoveBPHO
+ * 6 - testValidMoveBPHO  B is ok but.. R is on
  * 7 - testValidMoveBJOL    ok
  * 
  * 8 - testValidMoveRJOL     ok
- * 9 - testValidMoveRPHO
+ * 9 - testValidMoveRPHO    
  * 10 - testValidMoveRCHA     ok 
- * 11 - testValidMoveRMA
+ * 11 - testValidMoveRMA        ok
  * 12 - testValidMoveRSANG
- * 13 - testValidMoveRSA
- * 14 -testValidMoveRJANG
+ * 13 - testValidMoveRSA 
+ * 14 - testValidMoveRJANG
  * 
  */
 
@@ -263,22 +263,50 @@ public class WonYoungChoi_200924542 {
 	
 	
 	/* - testValidMoveBSA
-	 * - 1
+	 * 1 - testValidMoveBSA_toEast
 	 * Input : putUnit BSA (3,0) -> (4,0) 
 	 * Expected: return SUCCESS 
 	 * 												(3,0) = NONE
 	 * 												(4,0) = BSA
-	 *  - 2 
+	 *  2 - testValidMoveBSA_toSouth
 	 * Input : putUnit BSA (3,0) -> (3,1) 
 	 * Expected: return SUCCESS 
 	 * 												(3,0) = NONE
 	 * 												(3,1) = BSA
-	 *  
-	 *  
+	 *  3 - testValidMoveBSA_toNorth
+	 * Input : putUnit BSA (3,1) -> (3,0) 
+	 * Expected: return SUCCESS 
+	 * 												(3,1) = NONE
+	 * 												(3,0) = BSA
+	 *  4 - testValidMoveBSA_toWest
+	 * Input : putUnit BSA (5,0) -> (4,0) 
+	 * Expected: return SUCCESS 
+	 * 												(5,0) = NONE
+	 * 												(4,0) = BSA
+	 *  5 - testValidMoveBSA_toDiagonalSouthEast
+	 * Input : putUnit BSA () -> () 
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BSA
+	 *  6 - testValidMoveBSA_toDiagonalSouthWest
+	 * Input : putUnit BSA () -> () 
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BSA
+	 *  7 - testValidMoveBSA_toDiagonalNorthWest
+	 * Input : putUnit BSA () -> () 
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BSA
+	 *  8 - testValidMoveBSA_toDiagonalNorthEast
+	 * Input : putUnit BSA () -> () 
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BSA
 	 */
 	@Test
 	public void testValidMoveBSA() {
-		// 1 - putUnit BSA (3,0) -> (4,0) 
+		// 1 - testValidMoveBSA_toEast
 		{
 			testJangGi = new KoreanChess();
 			int[] beforeXY = {3,0};
@@ -288,7 +316,7 @@ public class WonYoungChoi_200924542 {
 			assertEquals(Unit.BSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
 			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
-		// 2 - putUnit BSA (3,0) -> (3,1) 
+		// 2 - testValidMoveBSA_toSouth
 		{
 			testJangGi = new KoreanChess();
 			int[] beforeXY = {3,0};
@@ -298,6 +326,14 @@ public class WonYoungChoi_200924542 {
 			assertEquals(Unit.BSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
 			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	
@@ -1009,9 +1045,6 @@ public class WonYoungChoi_200924542 {
 		}		
 		
 	}
-	
-	
-	
 	
 	
 	
