@@ -17,18 +17,29 @@ public class WonYoungChoi_200924542 {
 	}
 
 	/* - testValidMoveBCHA
-	 * - 1(testValidMoveCHA_toSouth)
+	 * - 1(testValidMoveBCHA_toSouth)
 	 * Input : putUnit BCHA (0,0) -> (0,1) 
 	 * Expected: return SUCCESS 
 	 * 												(0,0) = NONE
 	 * 												(0,1) = BCHA
 	 * 
-	 * - 2(testValidMoveCHA_toNorth)
+	 * - 2(testValidMoveBCHA_toNorth)
+	 * Input : putUnit BCHA (0,0) -> (0,1) 
+	 * Expected: return SUCCESS 
+	 * 												(0,0) = NONE
+	 * 												(0,1) = BCHA
 	 * 
-	 * - 3(testValidMoveCHA_toEast)
+	 * - 3(testValidMoveBCHA_toEast)
+	 * Input : putUnit BCHA (0,1) -> (1,1) 
+	 * Expected: return SUCCESS 
+	 * 												(0,1) = NONE
+	 * 												(1,1) = BCHA
 	 * 
-	 * - 4(testValidMoveCHA_toWest)
-	 * 
+	 * - 4(testValidMoveBCHA_toWest)
+	 * Input : putUnit BCHA (1,1) -> (0,1) 
+	 * Expected: return SUCCESS 
+	 * 												(1,1) = NONE
+	 * 												(0,1) = BCHA
 	 */
 	@Test
 	public void testValidMoveBCHA() {
@@ -40,6 +51,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 		// 2 - putUnit BCHA (0,1) -> (0,0) 
 		{
@@ -51,6 +63,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 
 		// 3 - putUnit BCHA (0,1) -> (1,1) 
@@ -63,6 +76,7 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
 
 		// 4 - putUnit BCHA (1,1) -> (0,1) 
@@ -77,8 +91,8 @@ public class WonYoungChoi_200924542 {
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
 		}
-		
 	}
 
 	/* - testValidMoveBSANG
@@ -552,11 +566,85 @@ public class WonYoungChoi_200924542 {
 	
 
 	/* - testValidMoveRCHA
-	 * - 1
+	 * - 1(testValidMoveRCHA_toNorth)
+	 * Input : putUnit RCHA (0,9) -> (0,8) 
+	 * Expected: return SUCCESS 
+	 * 												(0,9) = NONE
+	 * 												(0,8) = RCHA
 	 * 
+	 * - 2(testValidMoveRCHA_toSouth)
+	 * Input : putUnit RCHA (0,8) -> (0,9) 
+	 * Expected: return SUCCESS 
+	 * 												(0,8) = NONE
+	 * 												(0,9) = RCHA
+	 * 
+	 * 
+	 * - 3(testValidMoveRCHA_toEast)
+	 * Input : putUnit RCHA (0,8) -> (1,8) 
+	 * Expected: return SUCCESS 
+	 * 												(0,8) = NONE
+	 * 												(1,8) = RCHA
+	 * 
+	 * - 4(testValidMoveRCHA_toWest)
+	 * Input : putUnit RCHA (1,8) -> (0,8) 
+	 * Expected: return SUCCESS 
+	 * 												(1,8) = NONE
+	 * 												(0,8) = RCHA
 	 */
 	@Test
 	public void testValidMoveRCHA() {
+		// 1 - putUnit RCHA (0,9) -> (0,8) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,9};
+			int[] afterXY = {0,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 2 - putUnit RCHA (0,8) -> (0,9) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,8};
+			int[] afterXY = {0,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(0,9, Unit.RCHA, 0,8);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 3 - putUnit RCHA (0,8) -> (1,8) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,8};
+			int[] afterXY = {1,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(0,9, Unit.RCHA, 0,8);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 4 - putUnit RCHA (1,8) -> (0,8) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {1,8};
+			int[] afterXY = {0,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(0,9, Unit.RCHA, 0,8);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(0,8, Unit.RCHA, 1,8);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
 		
 	}
 
