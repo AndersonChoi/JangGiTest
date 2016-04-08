@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import KoreanChessGame.KoreanChess;
 import KoreanChessGame.PutResult;
@@ -17,35 +16,88 @@ public class WonYoungChoi_200924542 {
 		testJangGi = null;
 	}
 
-	/*
+	/* - testValidMoveBCHA
+	 * - 1(testValidMoveCHA_toSouth)
 	 * Input : putUnit BCHA (0,0) -> (0,1) 
 	 * Expected: return SUCCESS 
 	 * 												(0,0) = NONE
 	 * 												(0,1) = BCHA
+	 * 
+	 * - 2(testValidMoveCHA_toNorth)
+	 * 
+	 * - 3(testValidMoveCHA_toEast)
+	 * 
+	 * - 4(testValidMoveCHA_toWest)
+	 * 
 	 */
 	@Test
-	public void testValidFirstPutBCHA() {
-		testJangGi = new KoreanChess();
-		PutResult result = testJangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BCHA, testJangGi.getUnit(0, 1));
-		assertEquals(Unit.NULL, testJangGi.getUnit(0, 0));
+	public void testValidMoveBCHA() {
+		// 1 - putUnit BCHA (0,0) -> (0,1) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,0};
+			int[] afterXY = {0,1};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 2 - putUnit BCHA (0,1) -> (0,0) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,1};
+			int[] afterXY = {0,0};
+			testJangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+			testJangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+
+		// 3 - putUnit BCHA (0,1) -> (1,1) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {0,1};
+			int[] afterXY = {1,1};
+			testJangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+			testJangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+
+		// 4 - putUnit BCHA (1,1) -> (0,1) 
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {1,1};
+			int[] afterXY = {0,1};
+			testJangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+			testJangGi.putUnit(0, 6, Unit.RJOL, 1, 6);
+			testJangGi.putUnit(0, 1, Unit.BCHA, 1, 1);
+			testJangGi.putUnit(1, 6, Unit.RJOL, 0, 6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BCHA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		
 	}
 
-	/*
+	/* - testValidMoveBSANG
+	 * - 1
 	 * Input : putUnit BSANG (2,0) -> (3,3) 
 	 * Expected: return SUCCESS 
 	 * 												(2,0) = NONE
 	 * 												(3,3) = BSANG
 	 */
 	@Test
-	public void testValidFirstPutBSANG() {
-		testJangGi = new KoreanChess();
-		int[] beforeXY = {1,0};
-		int[] afterXY = {3,3};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	public void testValidMoveBSANG() {
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {1,0};
+			int[] afterXY = {3,3};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
 	}
 
 	/* - testValidMoveBMA
@@ -56,6 +108,10 @@ public class WonYoungChoi_200924542 {
 	 * 												(3,2) = BMA
 	 * 
 	 *  - 2 
+	 * Input : putUnit BMA (3,2) -> (4,0) 
+	 * Expected: return SUCCESS 
+	 * 												(3,2) = NONE
+	 * 												(4,0) = BMA
 	 *  
 	 */
 	@Test
@@ -463,15 +519,86 @@ public class WonYoungChoi_200924542 {
 		}
 		
 	}
+	
+	/* - testValidMoveBJOL
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveBJOL() {
+		
+	}
+	
 
+	/* - testValidMoveRJOL
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRJOL() {
+		
+	}
+	
+
+	/* - testValidMoveRPHO
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRPHO() {
+		
+	}
 	
 	
+
+	/* - testValidMoveRCHA
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRCHA() {
+		
+	}
+
+	/* - testValidMoveRMA
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRMA() {
+		
+	}
 	
-	
-	
-	
-	
-	
+
+
+	/* - testValidMoveRSANG
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRSANG() {
+		
+	}
+
+
+	/* - testValidMoveRSA
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRSA() {
+		
+	}
+
+
+	/* - testValidMoveRJANG
+	 * - 1
+	 * 
+	 */
+	@Test
+	public void testValidMoveRJANG() {
+		
+	}
 	
 	
 	
