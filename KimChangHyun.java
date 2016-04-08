@@ -18,7 +18,7 @@ public class KimChangHyun_201124435 {
 	public void tearDown() throws Exception {
 		janggi = null;
 	}
-	
+		
 	@Test
 	public void BJOL_CaptureTest() {			//RSA is just repeating useless movement
 		int[] myXY = {0, 3};			//Set the moving BJOL
@@ -354,7 +354,7 @@ public class KimChangHyun_201124435 {
 
 	@Test
 	public void RSANG_CaptureTest(){			//BSA is just repeating useless movement
-		int[] myXY = {2, 9};
+		int[] myXY = {2, 9};			//Set the moving BSANG
 		janggi.putUnit(8, 3, Unit.BJOL, 7, 3);			//To move BPHO
 		janggi.putUnit(4, 6, Unit.RJOL, 3, 6);
 		janggi.putUnit(7, 2, Unit.BPHO, 7, 4);
@@ -401,5 +401,71 @@ public class KimChangHyun_201124435 {
 		result = janggi.putUnit(myXY[0], myXY[1], Unit.RSANG, myXY[0] = myXY[0] + 3, myXY[1] = myXY[1] - 2);			//Capture BJANG 'GAMEOVER'
 		assertEquals(PutResult.GAMEOVER, result);
 		janggi.showBoard();
+	}
+
+	@Test
+	public void BPHO_CaptureTest(){			//RJOL is just repeating useless movement
+		int[] myXY = {1, 2};			//Set the moving BPHO
+		janggi.putUnit(0, 3, Unit.BJOL, 1, 3);			//To make BPHO can jump
+		janggi.putUnit(0, 6, Unit.RJOL, 1, 6);
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0], myXY[1] = myXY[1] + 4);			//Capture RJOL
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(1, 9, Unit.RMA, 2, 7);			//To step aside the RPHO
+		
+		janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0], myXY[1] = myXY[1] - 4);
+		janggi.putUnit(1, 7, Unit.RPHO, 4, 7);			//Step aside the RPHO
+		janggi.putUnit(3, 0, Unit.BSA, 4, 0);
+		janggi.putUnit(2, 7, Unit.RMA, 1, 9);			//Set the RMA captured by BPHO
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0], myXY[1] = myXY[1] + 7);			//Capture RMA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(8, 6, Unit.RJOL, 7, 6);
+		
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0] = myXY[0] + 2, myXY[1]);			//Capture RSA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(7, 6, Unit.RJOL, 8, 6);
+		
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0] = myXY[0] + 3, myXY[1]);			//Capture RSANG
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(5, 9, Unit.RSA, 5, 8);
+
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0] = myXY[0] + 2, myXY[1]);			//Capture RCHA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(4, 8, Unit.RJANG, 5, 9);			//Set the RJANG captured by BPHO
+
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.BPHO, myXY[0] = myXY[0] - 3, myXY[1]);			//Capture RJANG 'GAMEOVER'
+		assertEquals(PutResult.GAMEOVER, result);
+	}
+
+	@Test
+	public void RPHO_CaptureTest(){			//BJOL is just repeating useless movement
+		int[] myXY = {7, 7};			//Set the moving RPHO
+		janggi.putUnit(8, 3, Unit.BJOL, 7, 3);
+		janggi.putUnit(8, 6, Unit.RJOL, 7, 6);			//To make RPHO can jump
+		janggi.putUnit(7, 0, Unit.BMA, 6, 2);
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0], myXY[1] = myXY[1] - 4);			//Capture BJOL
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(7, 2, Unit.BPHO, 4, 2);
+
+		janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0], myXY[1] = myXY[1] + 4);
+		janggi.putUnit(0, 3, Unit.BJOL, 1, 3);
+		janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0], myXY[1] = myXY[1] - 7);
+		janggi.putUnit(1, 3, Unit.BJOL, 0, 3);
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0] = myXY[0] - 2, myXY[1]);			//Capture BSA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(0, 3, Unit.BJOL, 1, 3);
+		
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0] = myXY[0] - 3, myXY[1]);			//Capture BMA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(1, 0, Unit.BSANG, 3, 3);			//To Set the BCHA captured by RPHO
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0] = myXY[0] + 4, myXY[1]);			//Capture BSANG
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(1, 3, Unit.BJOL, 0, 3);
+
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0] = myXY[0] - 6, myXY[1]);			//Capture BCHA
+		assertEquals(PutResult.CAPTURE, result);
+		janggi.putUnit(4, 1, Unit.BJANG, 4, 0);			//Set the BJANG captured by RPHO
+
+		result = janggi.putUnit(myXY[0], myXY[1], Unit.RPHO, myXY[0] = myXY[0] + 4, myXY[1]);			//Capture BJANG 'GAMEOVER'
+		assertEquals(PutResult.GAMEOVER, result);
 	}
 }
