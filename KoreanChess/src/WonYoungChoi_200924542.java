@@ -114,152 +114,136 @@ public class WonYoungChoi_200924542 {
 		assertEquals(Unit.BSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
 	}
 	
-
-
-	/*
+	
+	
+	/* - testValidMoveBJANG
+	 * - 1
 	 * Input : putUnit BJANG (4,1) -> (4,0) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(4,0) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_01() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {4,0};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-	
-	
-
-	/*
+	 *  - 2
 	 * Input : putUnit BJANG (4,1) -> (3,1) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(3,1) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_02() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {3,1};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-	
-
-
-	/*
+	 *  - 3
 	 * Input : putUnit BJANG (4,1) -> (5,1) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(5,1) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_03() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {5,1};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-	
-
-	/*
+	 *  - 4
 	 * Input : putUnit BJANG (4,1) -> (3,2) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(3,2) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_04() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {3,2};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-
-	/*
+	 *  - 5
 	 * Input : putUnit BJANG (4,1) -> (4,2) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(4,2) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_05() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {4,2};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-
-	/*
+	 *  - 6
 	 * Input : putUnit BJANG (4,1) -> (5,2) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(5,2) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_06() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {5,2};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-
-
-	/*
+	 *  - 7
 	 * Input : putUnit BJANG (4,1) -> (5,1) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(5,1) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_07() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {5,1};
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-
-	/*
+	 *  - 8
 	 * Input : putUnit BJANG (4,1) -> (3,0) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(3,0) = BJANG
-	 */
-	@Test
-	public void testValidFirstPutBJANG_08() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {3,0};
-		testJangGi.putUnit(3,0, Unit.BSA, 3,1);
-		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
-	}
-
-	/*
+	 *  - 9
 	 * Input : putUnit BJANG (4,1) -> (5,0) 
 	 * Expected: return SUCCESS 
 	 * 												(4,1) = NONE
 	 * 												(5,0) = BJANG
 	 */
 	@Test
-	public void testValidFirstPutBJANG_09() {
-		int[] beforeXY = {4,1};
-		int[] afterXY = {5,0};
-		testJangGi.putUnit(5,0, Unit.BSA, 5,1);
-		testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
-		PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
-		assertEquals(PutResult.SUCCESS, result);
-		assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+	public void testValidMoveBJANG() {
+		// 1 - putUnit BJANG (4,1) -> (4,0) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {4,0};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 2 - putUnit BJANG (4,1) -> (3,1) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {3,1};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 3 - putUnit BJANG (4,1) -> (5,1) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {5,1};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 4 - putUnit BJANG (4,1) -> (3,2) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {3,2};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 5 - putUnit BJANG (4,1) -> (4,2) 
+		{
+				int[] beforeXY = {4,1};
+				int[] afterXY = {4,2};
+				PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+				assertEquals(PutResult.SUCCESS, result);
+				assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 6 - putUnit BJANG (4,1) -> (5,2)
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {5,2};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 7 - putUnit BJANG (4,1) -> (5,1) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {5,1};
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 8 - putUnit BJANG (4,1) -> (3,0) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {3,0};
+			testJangGi.putUnit(3,0, Unit.BSA, 3,1);
+			testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		// 9 - putUnit BJANG (4,1) -> (5,0) 
+		{
+			int[] beforeXY = {4,1};
+			int[] afterXY = {5,0};
+			testJangGi.putUnit(5,0, Unit.BSA, 5,1);
+			testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BJANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+		}
+		
 	}
+	
 	
 	
 	
