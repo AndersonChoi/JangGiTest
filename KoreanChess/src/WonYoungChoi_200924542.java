@@ -6,10 +6,29 @@ import KoreanChessGame.KoreanChess;
 import KoreanChessGame.PutResult;
 import KoreanChessGame.Unit;
 
+
+/*
+ * 1 - testValidMoveBCHA    ok
+ * 2 - testValidMoveBSANG
+ * 3 - testValidMoveBMA    ok
+ * 4 - testValidMoveBSA
+ * 5 - testValidMoveBJANG   ok
+ * 6 - testValidMoveBPHO
+ * 7 - testValidMoveBJOL    ok
+ * 
+ * 8 - testValidMoveRJOL     ok
+ * 9 - testValidMoveRPHO
+ * 10 - testValidMoveRCHA     ok 
+ * 11 - testValidMoveRMA
+ * 12 - testValidMoveRSANG
+ * 13 - testValidMoveRSA
+ * 14 -testValidMoveRJANG
+ * 
+ */
+
 public class WonYoungChoi_200924542 {
 
 	KoreanChess testJangGi;
-	// 나는 먼저 success 부터한다 success는 성공한거 캡쳐도아니고 fail도 아니고 잘이동햇는지에 대한 정보를 담는다.
 
 	@After
 	public void tearDown() {
