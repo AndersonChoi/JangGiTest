@@ -21,7 +21,7 @@ import KoreanChessGame.Unit;
  * 10 - testValidMoveRCHA     ok 
  * 11 - testValidMoveRMA        ok
  * 12 - testValidMoveRSANG                    no
- * 13 - testValidMoveRSA                     no
+ * 13 - testValidMoveRSA          ok
  * 14 - testValidMoveRJANG    ok
  * 
  */
@@ -34,6 +34,8 @@ public class WonYoungChoi_200924542 {
 	public void tearDown() {
 		testJangGi = null;
 	}
+	
+	
 
 	/* - testValidMoveBCHA
 	 * 1 - testValidMoveBCHA_toSouth
@@ -1145,16 +1147,6 @@ public class WonYoungChoi_200924542 {
 	}
 
 
-	/* - testValidMoveRSA
-	 * - 1
-	 * 
-	 */
-	@Test
-	public void testValidMoveRSA() {
-		
-	}
-
-
 	/* - testValidMoveRJANG
 	 * - 1
 	 * 
@@ -1163,6 +1155,161 @@ public class WonYoungChoi_200924542 {
 	public void testValidMoveRJANG() {
 		
 	}
+	
+
+	/* - testValidMoveRSA
+	 * 1 - testValidMoveRSA_toEast
+	 * Input : putUnit RSA (3,9) -> (4,9) 
+	 * Expected: return SUCCESS 
+	 * 												(3,9) = NONE
+	 * 												(4,9) = RSA
+	 *  2 - testValidMoveRSA_toSouth
+	 * Input : putUnit RSA (3,8) -> (3,9) 
+	 * Expected: return SUCCESS 
+	 * 												(3,8) = NONE
+	 * 												(3,9) = RSA
+	 *  3 - testValidMoveRSA_toNorth
+	 * Input : putUnit RSA (3,9) -> (3,8) 
+	 * Expected: return SUCCESS 
+	 * 												(3,9) = NONE
+	 * 												(3,8) = RSA
+	 *  4 - testValidMoveRSA_toWest
+	 * Input : putUnit RSA (5,9) -> (4,9) 
+	 * Expected: return SUCCESS 
+	 * Expected: return SUCCESS 
+	 * 												(5,9) = NONE
+	 * 												(4,9) = RSA
+	 *  5 - testValidMoveRSA_toDiagonalSouthEast
+	 * Input : putUnit RSA (4,8) -> (5,9) 
+	 * Expected: return SUCCESS 
+	 * 												(4,8) = NONE
+	 * 												(5,9) = RSA
+	 *  6 - testValidMoveRSA_toDiagonalSouthWest
+	 * Input : putUnit RSA (4,8) -> (3,9) 
+	 * Expected: return SUCCESS 
+	 * 												(4,8) = NONE
+	 * 												(3,9) = RSA
+	 *  7 - testValidMoveRSA_toDiagonalNorthWest
+	 * Input : putUnit RSA (4,8) -> (3,7) 
+	 * Expected: return SUCCESS 
+	 * 												(4,8) = NONE
+	 * 												(3,7) = RSA
+	 *  8 - testValidMoveRSA_toDiagonalNorthEast
+	 * Input : putUnit RSA (4,8) -> (5,7) 
+	 * Expected: return SUCCESS 
+	 * 												(4,8) = NONE
+	 * 												(5,7) = RSA
+	 */
+	@Test
+	public void testValidMoveRSA() {
+		// 1 - testValidMoveRSA_toEast
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {3,9};
+			int[] afterXY = {4,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 2 - testValidMoveRSA_toSouth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {3,8};
+			int[] afterXY = {3,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(3,9, Unit.RSA, 3,8);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 3 - testValidMoveRSA_toNorth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {3,9};
+			int[] afterXY = {3,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 4 - testValidMoveRSA_toWest
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {5,9};
+			int[] afterXY = {4,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 5 - testValidMoveRSA_toDiagonalSouthEast
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,8};
+			int[] afterXY = {5,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,8, Unit.RJANG, 4,7);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(5,9, Unit.RSA, 4,8);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 6 - testValidMoveRSA_toDiagonalSouthWest
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,8};
+			int[] afterXY = {3,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,8, Unit.RJANG, 4,7);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(3,9, Unit.RSA, 4,8);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 7 - testValidMoveRSA_toDiagonalNorthWest
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,8};
+			int[] afterXY = {3,7};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,8, Unit.RJANG, 4,7);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(3,9, Unit.RSA, 4,8);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 8 - testValidMoveRSA_toDiagonalNorthEast
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,8};
+			int[] afterXY = {5,7};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,8, Unit.RJANG, 4,7);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(3,9, Unit.RSA, 4,8);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSA, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+	}
+	
 	
 	
 	
