@@ -7,16 +7,13 @@ import KoreanChessGame.PutResult;
 import KoreanChessGame.Unit;
 
 public class ParkJungBin_201124446 {
-
 	/**
 	 * Input: KoreanChessConstructor
 	 * Expected: Board Initial Setting
 	 */
-
 	@Test
 	public void testConstructor() {
 		KoreanChess JangGi = new KoreanChess();
-
 		assertEquals(Unit.BCHA, JangGi.getUnit(0,0));
 		assertEquals(Unit.BSANG, JangGi.getUnit(1,0));
 		assertEquals(Unit.BMA, JangGi.getUnit(2,0));
@@ -339,7 +336,7 @@ public class ParkJungBin_201124446 {
 	 * 		return FAILURE
 	 * 		(5,1) = BSA
 	 */
-	@Test //********
+	@Test
 	public void testFailureMoveBSAToNoDiagonalLine(){
 		int[] beforeXY={5,1};
 		int[] afterXY={4,2};
@@ -387,7 +384,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	} 
 
-	//쫄
+	//초 쫄
 	/**
 	 * When Blue JOL move to back space.
 	 * Input: putUnit BJOL (0,3) -> (0,2)
@@ -441,7 +438,7 @@ public class ParkJungBin_201124446 {
 	 * 		return FAILURE
 	 * 		(4,7) = BJOL
 	 */
-	@Test //*****
+	@Test
 	public void testFailureMoveBJOLToNoDiagonalLineInEnomyCastle(){
 		int[] beforeXY={4,7};
 		int[] afterXY={5,8};
@@ -499,7 +496,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
 
-	////////상~!
+	////////초의 상~!
 	/**
 	 * When Blue SANG move to some blocked paths.
 	 * Input: putUnit BSANG (6,0) -> (4,3) / (8,3)
@@ -585,7 +582,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
 
-	//마!!
+	//초 마!!
 	/**
 	 * When Blue MA move to some blocked paths.
 	 * Input: putUnit BMA (6,2) -> (7,0) / (5,0) / (4,1) / (4,3) / (5,4) / (7,4) / (8,3) / (8,1)
@@ -663,7 +660,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
 
-	//포~~
+	//초 포~~
 	/**
 	 * When Blue PHO move over the other pho.
 	 * Input: putUnit BPHO (1,2) -> (8,2) / (1,9)
@@ -672,7 +669,7 @@ public class ParkJungBin_201124446 {
 	 * 		(1,2) = BPHO
 	 */
 	@Test
-	public void testFailureMoveBPHOOverTheOtherPHO(){
+	public void testFailureMoveBPHOOverAnotherPHO(){
 		int[] beforeXY={1,2};
 		int[] afterXY1={8,2};
 		int[] afterXY2={1,9};
@@ -818,7 +815,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY3[0], beforeXY3[1]));
 	}
 
-	//////차
+	//////초 차
 	/**
 	 * When Blue CHA move over a piece.
 	 * Input: putUnit BCHA (0,0) -> (0,6) / (4,0)
@@ -896,7 +893,6 @@ public class ParkJungBin_201124446 {
 	////////////////////////위 BLUE / 아래 RED///////////////////////////// 
 
 	//한 장
-
 	/**
 	 * When Red JANG move out of castle.
 	 * Input: putUnit RJANG (3,8) -> (2,8)
@@ -995,7 +991,6 @@ public class ParkJungBin_201124446 {
 	} 
 
 	//한 사
-
 	/**
 	 * When Red SA move out of castle.
 	 * Input: putUnit RSA (5,8) -> (6,8)
@@ -1095,7 +1090,6 @@ public class ParkJungBin_201124446 {
 	} 
 
 	//한 쫄
-
 	/**
 	 * When Red JOL move to back.
 	 * Input: putUnit RJOL (0,6) -> (0,7)
@@ -1151,7 +1145,7 @@ public class ParkJungBin_201124446 {
 	 * 		return FAILURE
 	 * 		(4,2) = RJOL
 	 */
-	@Test //*****
+	@Test
 	public void testFailureMoveRJOLToNoDiagonalLineInEnomyCastle(){
 		int[] beforeXY={4,2};
 		int[] afterXY={5,1};
@@ -1176,10 +1170,10 @@ public class ParkJungBin_201124446 {
 
 	/**
 	 * When Red JOL move to illegal space.
-	 * Input: putUnit RJOL (0,3) -> (1,4)
+	 * Input: putUnit RJOL (0,6) -> (1,5)
 	 * Expected:
 	 * 		return FAILURE
-	 * 		(0,3) = RJOL
+	 * 		(0,6) = RJOL
 	 */
 	@Test
 	public void testFailureMoveRJOLToIllegalSpace(){
@@ -1213,7 +1207,6 @@ public class ParkJungBin_201124446 {
 	}
 
 	////////한 상~!
-
 	/**
 	 * When Red SANG move to some blocked paths.
 	 * Input: putUnit RSANG (2,9) -> (0,6) / (4,6)
@@ -1369,10 +1362,10 @@ public class ParkJungBin_201124446 {
 
 	/**
 	 * When Red MA move to diagonal line first in castle.
-	 * Input: putUnit RMA (4,1) -> (6,2)
+	 * Input: putUnit RMA (4,8) -> (6,7)
 	 * Expected:
 	 * 		return FAILURE
-	 * 		(4,1) = RMA
+	 * 		(4,8) = RMA
 	 */
 	@Test
 	public void testFailureMoveRMAToDiagonalLineFirstInCastle(){
@@ -1391,16 +1384,16 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
 
-	//포~~  
+	//한 포~~  
 	/**
 	 * When Red PHO move over the other pho.
-	 * Input: putUnit RPHO (1,7) -> (8,7) / (1,0)
+	 * Input: putUnit RPHO (1,7) -> (1,0) / (8,7)
 	 * Expected:
 	 * 		return FAILURE
 	 * 		(1,7) = RPHO
 	 */
 	@Test
-	public void testFailureMoveRPHOOverTheOtherPHO(){
+	public void testFailureMoveRPHOOverAnotherPHO(){
 		int[] beforeXY={1,7};
 		int[] afterXY1={1,0};
 		int[] afterXY2={8,7};
@@ -1540,7 +1533,7 @@ public class ParkJungBin_201124446 {
 		assertEquals(target, JangGi.getUnit(beforeXY2[0], beforeXY2[1]));
 	}
 
-	//////차
+	//////한 차
 	/**
 	 * When Red CHA move over a piece.
 	 * Input: putUnit RCHA (8,9) -> (8,3) / (4,9)
@@ -1618,5 +1611,4 @@ public class ParkJungBin_201124446 {
 		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	}
-
 }
