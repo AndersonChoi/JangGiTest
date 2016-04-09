@@ -739,6 +739,26 @@ public class WonYoungChoi_200924542 {
 	 * Expected: return SUCCESS 
 	 * 												(1,2) = NONE
 	 * 												(1,5) = BPHO
+	 * 11 - testValidOverRSANG_BPHO
+	 * Input : putUnit BPHO () -> ()
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BPHO
+	 * 12 - testValidOverRSA_BPHO
+	 * Input : putUnit BPHO () -> ()
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BPHO
+	 * 13 - testValidOverRJANG_BPHO
+	 * Input : putUnit BPHO () -> ()
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BPHO
+	 * 14 - testValidCrossOverRSA_BPHO
+	 * Input : putUnit BPHO () -> ()
+	 * Expected: return SUCCESS 
+	 * 												() = NONE
+	 * 												() = BPHO
 	 * 
 	 * 
 	 */
