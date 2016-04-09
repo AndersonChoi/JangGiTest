@@ -13,7 +13,7 @@ import KoreanChessGame.Unit;
  * 3 - testValidMoveBMA    ok
  * 4 - testValidMoveBSA    ok
  * 5 - testValidMoveBJANG   ok
- * 6 - testValidMoveBPHO  					B is ok but.. R is on
+ * 6 - testValidMoveBPHO  	ok
  * 7 - testValidMoveBJOL    ok
  * 
  * 8 - testValidMoveRJOL     ok
@@ -740,25 +740,25 @@ public class WonYoungChoi_200924542 {
 	 * 												(1,2) = NONE
 	 * 												(1,5) = BPHO
 	 * 11 - testValidOverRSANG_BPHO
-	 * Input : putUnit BPHO () -> ()
+	 * Input : putUnit BPHO (4,2) -> (4,7)
 	 * Expected: return SUCCESS 
-	 * 												() = NONE
-	 * 												() = BPHO
+	 * 												(4,2) = NONE
+	 * 												(4,7) = BPHO
 	 * 12 - testValidOverRSA_BPHO
-	 * Input : putUnit BPHO () -> ()
+	 * Input : putUnit BPHO (3,2) -> (3,9)
 	 * Expected: return SUCCESS 
-	 * 												() = NONE
-	 * 												() = BPHO
+	 * 												(3,2) = NONE
+	 * 												(3,9) = BPHO
 	 * 13 - testValidOverRJANG_BPHO
-	 * Input : putUnit BPHO () -> ()
+	 * Input : putUnit BPHO (4,2) -> (4,9)
 	 * Expected: return SUCCESS 
-	 * 												() = NONE
-	 * 												() = BPHO
+	 * 												(4,2) = NONE
+	 * 												(4,9) = BPHO
 	 * 14 - testValidCrossOverRSA_BPHO
-	 * Input : putUnit BPHO () -> ()
+	 * Input : putUnit BPHO (3,9) -> (5,7)
 	 * Expected: return SUCCESS 
-	 * 												() = NONE
-	 * 												() = BPHO
+	 * 												(3,9) = NONE
+	 * 												(5,7) = BPHO
 	 * 
 	 * 
 	 */
@@ -911,6 +911,69 @@ public class WonYoungChoi_200924542 {
 			testJangGi.putUnit(0,9, Unit.RCHA, 0,4);
 			testJangGi.putUnit(0,0, Unit.BCHA, 0,1);
 			testJangGi.putUnit(0,4, Unit.RCHA, 1,4);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 11 - testValidOverRSANG_BPHO
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,2};
+			int[] afterXY = {4,7};
+			testJangGi.putUnit(2,0, Unit.BMA, 3,2);
+			testJangGi.putUnit(4,6, Unit.RJOL, 3,6);
+			testJangGi.putUnit(1,2, Unit.BPHO, 4,2);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(4,3, Unit.BJOL, 3,3);
+			testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 12 - testValidOverRSA_BPHO
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {3,2};
+			int[] afterXY = {3,9};
+			testJangGi.putUnit(7,0, Unit.BMA, 6,2);
+			testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+			testJangGi.putUnit(7,2, Unit.BPHO, 3,2);
+			testJangGi.putUnit(3,9, Unit.RSA,3,8);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 13 - testValidOverRJANG_BPHO
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,2};
+			int[] afterXY = {4,9};
+			testJangGi.putUnit(7,0, Unit.BMA, 6,2);
+			testJangGi.putUnit(0,6, Unit.RJOL, 1,6);
+			testJangGi.putUnit(7,2, Unit.BPHO, 4,2);
+			testJangGi.putUnit(4,6, Unit.RJOL,5,6);
+			testJangGi.putUnit(4,3, Unit.BJOL, 3,3);
+			testJangGi.putUnit(4,8, Unit.RJANG,4,7);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
+			testJangGi.showBoard();
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}
+		// 14 - testCrossOverRSA_BPHO
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {3,9};
+			int[] afterXY = {5,7};
+			testJangGi.putUnit(7,0, Unit.BMA, 6,2);
+			testJangGi.putUnit(4,8, Unit.RJANG,4,7);
+			testJangGi.putUnit(7,2, Unit.BPHO, 3,2);
+			testJangGi.putUnit(3,9, Unit.RSA,3,8);
+			testJangGi.putUnit(3,2, Unit.BPHO, 3,9);
+			testJangGi.putUnit(3,8, Unit.RSA,4,8);
 			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]);
 			assertEquals(PutResult.SUCCESS, result);
 			assertEquals(Unit.BPHO, testJangGi.getUnit(afterXY[0], afterXY[1]));
