@@ -20,7 +20,7 @@ import KoreanChessGame.Unit;
  * 9 - testValidMoveRPHO                        no
  * 10 - testValidMoveRCHA     ok 
  * 11 - testValidMoveRMA        ok
- * 12 - testValidMoveRSANG                    no
+ * 12 - testValidMoveRSANG     ok
  * 13 - testValidMoveRSA          ok
  * 14 - testValidMoveRJANG    ok
  * 
@@ -1263,22 +1263,171 @@ public class WonYoungChoi_200924542 {
 		
 	}
 	
-	
-	
-	
-	
-	
-
 
 	/* - testValidMoveRSANG
-	 * - 1
-	 * 
+	 * 1 - testValidMoveRSANG_toSouthSouthEast
+	 * Input : putUnit RSANG (4,6) -> (6,9) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(6,9) = RSANG
+	 * 2 - testValidMoveRSANG_toSouthSouthWest
+	 * Input : putUnit RSANG (4,6) -> (2,9) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(2,9) = RSANG
+	 *  3 - testValidMoveRSANG_toNorthNorthEast
+	 * Input : putUnit RSANG (2,9) -> (4,6) 
+	 * Expected: return SUCCESS 
+	 * 												(2,9) = NONE
+	 * 												(4,6) = RSANG
+	 *  4 - testValidMoveRSANG_toNorthNorthWest
+	 * Input : putUnit RSANG (6,9) -> (4,6) 
+	 * Expected: return SUCCESS 
+	 * 												(6,9) = NONE
+	 * 												(4,6) = RSANG
+	 *  5 - testValidMoveRSANG_toEastEastSouth
+	 * Input : putUnit RSANG (4,6) -> (7,8) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(7,8) = RSANG
+	 *  6 - testValidMoveRSANG_toEastEastNorth
+	 * Input : putUnit RSANG (4,6) -> (7,4) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(7,4) = RSANG
+	 *  7 - testValidMoveRSANG_toWestWestSouth
+	 * Input : putUnit RSANG (4,6) -> (1,8) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(1,8) = RSANG
+	 *  8 - testValidMoveRSANG_toWestWestNorth
+	 * Input : putUnit RSANG (4,6) -> (1,4) 
+	 * Expected: return SUCCESS 
+	 * 												(4,6) = NONE
+	 * 												(1,4) = RSANG
+	 *  
 	 */
 	@Test
 	public void testValidMoveRSANG() {
-		
+		// 1 - testValidMoveRSANG_toSouthSouthEast
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {6,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(6,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 2 - testValidMoveRSANG_toSouthSouthWest
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {2,9};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 3 - testValidMoveRSANG_toNorthNorthEast
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {2,9};
+			int[] afterXY = {4,6};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 4 - testValidMoveRSANG_toNorthNorthWest
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {6,9};
+			int[] afterXY = {4,6};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 5 - testValidMoveRSANG_toEastEastSouth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {7,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 6 - testValidMoveRSANG_toEastEastNorth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {7,4};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 7 - testValidMoveRSANG_toWestWestSouth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {1,8};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
+		// 8 - testValidMoveRSANG_toWestWestNorth
+		{
+			testJangGi = new KoreanChess();
+			int[] beforeXY = {4,6};
+			int[] afterXY = {1,4};
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			testJangGi.putUnit(4,6, Unit.RJOL, 4,5);
+			testJangGi.putUnit(1,3, Unit.BJOL, 0,3);
+			testJangGi.putUnit(2,9, Unit.RSANG, 4,6);
+			testJangGi.putUnit(0,3, Unit.BJOL, 1,3);
+			PutResult result = testJangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]);
+			assertEquals(PutResult.SUCCESS, result);
+			assertEquals(Unit.RSANG, testJangGi.getUnit(afterXY[0], afterXY[1]));
+			assertEquals(Unit.NULL, testJangGi.getUnit(beforeXY[0], beforeXY[1]));
+		}		
 	}
-
+	
+	
 
 	/* - testValidMoveRJANG
 	 * - 1
