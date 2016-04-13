@@ -1,10 +1,7 @@
+package testOracle;
 import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import KoreanChessGame.KoreanChess;
-import KoreanChessGame.PutResult;
-import KoreanChessGame.Unit;
+import org.junit.*;
+import KoreanChessGame.*;
 
 public class ParkJungBin_201124446 {
 	/**
@@ -71,12 +68,24 @@ public class ParkJungBin_201124446 {
 	public void testReturnFailureMoveNoUnit(){
 		int[] beforeXY={0,2};
 		int[] afterXY={0,3};
-		Unit target = Unit.BJOL;
 		KoreanChess JangGi = new KoreanChess();
-		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BCHA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSANG, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BMA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJANG, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BSA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BPHO, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.BJOL, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RCHA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSANG, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RMA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RJANG, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RSA, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RPHO, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], Unit.RJOL, afterXY[0], afterXY[1]));
 		assertEquals(Unit.NULL, JangGi.getUnit(beforeXY[0], beforeXY[1]));
 	} 
-
+	
 	/**
 	 * When first turn is red.
 	 * Input: putUnit RJOL (0,6) -> (1,6)
@@ -172,7 +181,7 @@ public class ParkJungBin_201124446 {
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testFailureMoveOutUp(){
 		int[] beforeXY={0,0};
-		int[] afterXY={-1,0};
+		int[] afterXY={0,-1};
 		Unit target = Unit.BCHA;
 		KoreanChess JangGi = new KoreanChess();
 		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
@@ -1099,8 +1108,8 @@ public class ParkJungBin_201124446 {
 	 */
 	@Test
 	public void testFailureMoveRJOLToTheBackSpace(){
-		int[] beforeXY={0,6};
-		int[] afterXY={0,7};
+		int[] beforeXY={2,6};
+		int[] afterXY={2,7};
 		Unit target = Unit.RJOL;
 		KoreanChess JangGi = new KoreanChess();
 		JangGi.putUnit(0, 3, Unit.BJOL, 1, 3);
@@ -1610,5 +1619,93 @@ public class ParkJungBin_201124446 {
 		JangGi.putUnit(0, 3, Unit.BJOL, 1, 3);
 		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
 		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	////////////update to add some test cases from v1.0////////////////
+	/**
+	 * When Blue JANG move to out of castle
+	 * Input: putUnit RJANG (3,2) -> (2,2), (3,3)
+	 * Expected:
+	 * 		return FAILURE
+	 * 		(3,2) = BJANG
+	 */
+	@Test
+	public void testFailureBJANGMoveOutOfCastle(){
+		int[] beforeXY={3,2};
+		int[] afterXY={2,2};
+		int[] afterXY2={3,3};
+		Unit target = Unit.BJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(4, 1, Unit.BJANG, 3, 2);
+		JangGi.putUnit(8, 9, Unit.RCHA, 8, 8);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY2[0], afterXY2[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	/**
+	 * When Red JANG move to out of castle
+	 * Input: putUnit RJANG (3,7) -> (2,7), (3,6)
+	 * Expected:
+	 * 		return FAILURE
+	 * 		(3,7) = BJANG
+	 */
+	@Test
+	public void testFailureRJANGOutOfCastle(){
+		int[] beforeXY={3,7};
+		int[] afterXY={2,7};
+		int[] afterXY2={3,6};
+		Unit target = Unit.RJANG;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(0, 3, Unit.BJOL, 1, 3);
+		JangGi.putUnit(4, 8, Unit.RJANG, 3, 7);
+		JangGi.putUnit(1, 3, Unit.BJOL, 0, 3);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY[0], afterXY[1]));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(beforeXY[0], beforeXY[1], target, afterXY2[0], afterXY2[1]));
+		assertEquals(target, JangGi.getUnit(beforeXY[0], beforeXY[1]));
+	}
+	
+	/**
+	 * When Blue CHA move to allies of diagonal direction in castle.
+	 * Input: putUnit BCHA (4,1) -> (5,0), (3,0)
+	 * Expected:
+	 * 		return FAILURE
+	 * 		(4,1) = BCHA
+	 */
+	@Test
+	public void testFailureMoveBCHAInCastle(){
+		Unit target = Unit.BCHA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+		JangGi.putUnit(8, 9, Unit.RCHA, 8, 8);
+		JangGi.putUnit(4, 1, Unit.BJANG, 4, 0);
+		JangGi.putUnit(8, 8, Unit.RCHA, 8, 9);
+		JangGi.putUnit(0, 1, Unit.BCHA, 4, 1);
+		JangGi.putUnit(8, 9, Unit.RCHA, 8, 8);
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(4, 1, target, 5, 0));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(4, 1, target, 3, 0));
+		assertEquals(target, JangGi.getUnit(4, 1));
+	}
+	
+	/**
+	 * When Red CHA move to allies of diagonal direction in castle.
+	 * Input: putUnit RCHA (4, 8) -> (5, 9), (3, 9)
+	 * Expected:
+	 * 		return FAILURE
+	 * 		(4, 8) = RCHA
+	 */
+	@Test
+	public void testFailureMoveRCHAInCastle(){
+		Unit target = Unit.RCHA;
+		KoreanChess JangGi = new KoreanChess();
+		JangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+		JangGi.putUnit(8, 9, Unit.RCHA, 8, 8);
+		JangGi.putUnit(0, 1, Unit.BCHA, 0, 0);
+		JangGi.putUnit(4, 8, Unit.RJANG, 4, 9);
+		JangGi.putUnit(0, 0, Unit.BCHA, 0, 1);
+		JangGi.putUnit(8, 8, Unit.RCHA, 4, 8);
+		JangGi.putUnit(0, 1, Unit.BCHA, 0, 0);		
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(4, 8, target, 5, 9));
+		assertEquals(PutResult.FAILURE, JangGi.putUnit(4, 8, target, 3, 9));
 	}
 }
